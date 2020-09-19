@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#include <stdbool.h>
+#include "personaje.h" //las comillas indican que el archivo es de cabezera es hecho por un usuario
 #define FFLUSH while(getchar()!='\n')
 
 void CapturarEnteros()
@@ -38,6 +39,7 @@ int main ()
     char opcion;
     char cadena[20];
     int n;
+    bool registro=false;
     do
     {
         printf("\n¿Qué deseas hacer?:\n");
@@ -63,8 +65,18 @@ int main ()
                 mostrar(n,cadena);
                 break;
             case '3':
+                capturar_personaje();
+                registro=true;
                 break;
             case '4':
+                if(registro==true)
+                {
+                    mostrar_personajes();
+                }
+                else
+                {
+                    printf("\nNo hay personajes registrados para mostrar.\n");
+                }
                 break;
             case '5':
                 printf("\nSaliendo del programa...");
