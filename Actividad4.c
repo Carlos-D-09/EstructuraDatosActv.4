@@ -25,9 +25,19 @@ void CapturarEnteros()
     printf("\n");
 }
 
+void mostrar(int n, char cadena[])
+{
+    for (size_t x = 0; x < n; x++)
+    {
+        printf("\n%s", cadena);
+    }
+}
+
 int main ()
 {
     char opcion;
+    char cadena[20];
+    int n;
     do
     {
         printf("\n¿Qué deseas hacer?:\n");
@@ -45,6 +55,12 @@ int main ()
                 CapturarEnteros();
                 break;
             case '2':
+                printf("\nEscribe una cadena de hasta 20 caracteres: ");
+                FFLUSH;
+                fgets(cadena, sizeof(cadena), stdin);
+                printf("\n¿Cuantas veces quieres repetir la cadena?: ");
+                scanf("\n%d", &n);
+                mostrar(n,cadena);
                 break;
             case '3':
                 break;
